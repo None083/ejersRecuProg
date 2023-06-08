@@ -12,9 +12,13 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
@@ -53,7 +57,7 @@ public class ServiciosFicheros {
         return listaActividades;
     }
 
-    public static void escrituraFactura(String id, List<ActFormativas> lista) {
+    public static void escrituraActividades(String id, List<ActFormativas> lista) {
         try ( BufferedWriter flujo = new BufferedWriter(new FileWriter(id))) {
             for (ActFormativas a : lista) {
                 if (a.getFecFin().isBefore(LocalDate.of(2020, 04, 1))) {
@@ -67,7 +71,7 @@ public class ServiciosFicheros {
     }
 
     public static Map<String, Integer> mapNumeroCursos(List<ActFormativas> lista) {
-        Map<String, Integer> listaMap = new TreeMap<>();
+        Map<String, Integer> listaMap = new HashMap<>();
 
         List<String> listaCentros = lista.stream()
                 .map(c -> c.getCentro())
@@ -84,39 +88,43 @@ public class ServiciosFicheros {
 
         return listaMap;
     }
-    
-    public static void escribirJson(Map<String, Integer> listaMap, String id) throws IOException{
+
+    public static void escribirJson(Map<String, Integer> listaMap, String id) throws IOException {
         ObjectMapper mapeador = new ObjectMapper();
-        
-        // Permite a mapeador usar fechas según java time
+
         mapeador.registerModule(new JavaTimeModule());
-        
-        // Formato JSON bien formateado. Si se comenta, el fichero queda minificado
+
         mapeador.configure(SerializationFeature.INDENT_OUTPUT, true);
 
         mapeador.writeValue(new File(id), listaMap);
     }
-    
-    public static void leerJson(String[] args) throws IOException {
+
+    public static void leerJson() throws IOException {
         ObjectMapper mapeador = new ObjectMapper();
         mapeador.registerModule(new JavaTimeModule());
-        
-        Map<String, Integer> catalogo = mapeador.readValue(new File("cursos.json"),
-                    mapeador.getTypeFactory().constructCollectionType(ArrayList.class, MuebleVO.class));
-        System.out.println("---- Catálogo de Muebles ----");
-        for (MuebleVO muebleVO : catalogo) {
-            System.out.println(muebleVO);
+
+        Map<String, Integer> listaMap = mapeador.readValue(new File("centros.json"),
+                mapeador.getTypeFactory().constructMapType(HashMap.class, String.class, Integer.class));
+
+        System.out.println("---- Leer Json ----");
+        for (Map.Entry<String, Integer> entry : listaMap.entrySet()) {
+            Object key = entry.getKey();
+            Object val = entry.getValue();
+            System.out.println(key + " " + val);
         }
-        System.out.println("---- Catálogo de Muebles ----");
-        
-        ArrayList<EnvioMuebles> envios = mapeador.readValue(new File("catalogoEnvios.json"),
-                    mapeador.getTypeFactory().constructCollectionType(ArrayList.class, EnvioMuebles.class));
-        System.out.println("\n");
-        System.out.println("---- Catálogo de Envíos ----");
-        for (EnvioMuebles envio : envios) {
-            System.out.println(envio);
+    }
+    
+    public static void leerTxt(){
+        List<String> lineas=new ArrayList<>();
+        try {
+            lineas = Files.readAllLines(Paths.get("CursosAcabados.txt"),
+                    StandardCharsets.UTF_8);
+        } catch (IOException ex) {
+            System.out.println("Error leyendo el fichero");
         }
-        System.out.println("---- Catálogo de Envíos ----");
+        for (String linea : lineas) {
+            System.out.println(linea);
+        }
     }
 
 }

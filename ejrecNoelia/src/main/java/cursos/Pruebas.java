@@ -34,7 +34,7 @@ public class Pruebas {
         // Escribir txt con sólo título y fecha fin
         // si finalizaron antes o durante marzo del 2020
         
-        ServiciosFicheros.escrituraFactura("CursosAcabados.txt", listaActividades);
+        ServiciosFicheros.escrituraActividades("CursosAcabados.txt", listaActividades);
         
         // Creamos map con los centros y su numero de cursos
         
@@ -45,8 +45,15 @@ public class Pruebas {
             System.out.println(c + " tiene " + listaMap.get(c) + " cursos.");
         }
         
-        // Escribimos el Json
+        // Escribimos Json
         ServiciosFicheros.escribirJson(listaMap, "centros.json");
+        
+        //Leemos Json
+        ServiciosFicheros.leerJson();
+        
+        //Leemos txt
+        System.out.println("-----------Leer txt---------------");
+        ServiciosFicheros.leerTxt();
         
     }
 }
