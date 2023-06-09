@@ -15,33 +15,34 @@ import java.util.Set;
  * @author noelia
  */
 public class ServiciosFichero {
-    
+
     public static Set<FichaDomino> leerFicheroTxt(String id) {
         Set<FichaDomino> fichasUnicas = new HashSet<>();
         String linea;
         String[] tokens;
 
         try ( Scanner datosFichero = new Scanner(new File(id), "UTF-8")) {
+            try {
+                while (datosFichero.hasNextLine()) {
+                    linea = datosFichero.nextLine();
 
-            while (datosFichero.hasNextLine()) {
-                linea = datosFichero.nextLine();
-                
-                tokens = linea.split("-");
-                int ladoIzdo = Integer.parseInt(tokens[0].trim());
-                int ladoDer = Integer.parseInt(tokens[1].trim());
-                
-                for (int i = 0; i < tokens[i].length(); i++) {
-                    System.out.println(tokens[i]);
+                    tokens = linea.split("-");
+                    int ladoIzdo = Integer.parseInt(tokens[0].trim());
+                    int ladoDer = Integer.parseInt(tokens[1].trim());
+                    if (ladoIzdo >= 7 || ladoDer >= 7) {
+                        datosFichero.nextLine();
+                    } else {
+                        fichasUnicas.add(new FichaDomino(ladoIzdo, ladoDer));
+                    }
                 }
-                
-                fichasUnicas.add(new FichaDomino(ladoIzdo, ladoDer));
-                
+            } catch (NumberFormatException nfe) {
+
             }
-            
+
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
         }
         return fichasUnicas;
     }
-    
+
 }

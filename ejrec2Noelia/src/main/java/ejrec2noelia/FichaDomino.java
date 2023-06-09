@@ -39,14 +39,14 @@ public class FichaDomino {
 
     @Override
     public String toString() {
-        return "FichaDomino{" + "ladoIzdo=" + ladoIzdo + ", ladoDer=" + ladoDer + '}';
+        return ladoIzdo + "-" + ladoDer;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 61 * hash + this.ladoIzdo;
-        hash = 61 * hash + this.ladoDer;
+        hash = 61 * hash + this.ladoIzdo + this.ladoDer;
+        hash = 61 * hash + this.ladoDer + this.ladoIzdo;
         return hash;
     }
 
@@ -55,17 +55,12 @@ public class FichaDomino {
         if (this == obj) {
             return true;
         }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
+        if (obj == null||getClass() != obj.getClass()) {
             return false;
         }
         final FichaDomino other = (FichaDomino) obj;
-        if (this.ladoIzdo != other.ladoIzdo) {
-            return false;
-        }
-        return this.ladoDer == other.ladoDer;
+        return (ladoIzdo == other.ladoIzdo && ladoDer == other.ladoDer)||
+                (ladoIzdo == other.ladoDer && ladoDer == other.ladoIzdo);
     }
     
     
