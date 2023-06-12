@@ -1,0 +1,26 @@
+{
+  "peso": 130,
+	"elefantes":
+	[
+	  { 
+		"nombre": "Pegaso",
+		"peso": 108
+	  },
+	  { 
+		"nombre": "Tritón",
+		"peso": 0
+	  },
+	  { 
+		"nombre": "Prometeo",
+		"peso": 12
+	  },
+	  { 
+		"nombre": "Atenea",
+		"peso": 114
+	  },
+	  { 
+		"nombre": "Zeus",
+		"peso": -87
+	  }
+	]
+}
