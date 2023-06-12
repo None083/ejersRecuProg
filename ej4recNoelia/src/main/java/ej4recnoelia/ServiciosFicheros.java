@@ -5,10 +5,8 @@
 package ej4recnoelia;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
+
 
 /**
  *
@@ -16,17 +14,12 @@ import java.util.ArrayList;
  */
 public class ServiciosFicheros {
     
-    public static void leerJson() throws IOException{
+    public static Object leerJson(String json, Class clase) throws IOException{
         
         ObjectMapper mapeador = new ObjectMapper();
-        mapeador.registerModule(new JavaTimeModule());
-        
-        ArrayList<CasoPrueba> casoPrueba = mapeador.readValue(new File("caso1.json"),
-                    mapeador.getTypeFactory().constructCollectionType(ArrayList.class, CasoPrueba.class));
 
-        for (CasoPrueba caso : casoPrueba) {
-            System.out.println(caso);
-        } 
+        return mapeador.readValue(json,clase);
+
     }
     
 }
