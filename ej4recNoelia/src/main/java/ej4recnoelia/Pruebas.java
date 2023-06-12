@@ -15,7 +15,9 @@ public class Pruebas {
 
     public static void main(String[] args) throws IOException {
         
+        CasoPrueba caso = (CasoPrueba) ServiciosFicheros.leerJson("caso1.json", CasoPrueba.class);
         
+        caso.getListaElefantes().forEach(System.out::println);
         
     }
 }
