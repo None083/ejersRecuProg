@@ -20,6 +20,19 @@ public class Pruebas {
             System.out.println(f);
         }
         
+        System.out.println("Número de fichas: " + fichasUnicas.size());
+        
+        System.out.println("------Domino completo------------");
+        Set<FichaDomino> domino = FichaDomino.generarDominoCompleto();
+        
+        for (FichaDomino f : domino) {
+            System.out.println(f);
+        }
+        System.out.println("Número de fichas: " + domino.size());
+        
+        // Escribimos txt con el domino completo
+        ServiciosFichero.escribirTxt("dominoCompleto.txt", domino);
+        
     }
     
 }

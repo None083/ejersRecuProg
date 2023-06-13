@@ -4,8 +4,11 @@
  */
 package ejrec2noelia;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
@@ -36,13 +39,23 @@ public class ServiciosFichero {
                     }
                 }
             } catch (NumberFormatException nfe) {
-
             }
 
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
         }
         return fichasUnicas;
+    }
+    
+    public static void escribirTxt(String id, Set<FichaDomino> domino){
+        try ( BufferedWriter flujo = new BufferedWriter(new FileWriter(id))) {
+            for (FichaDomino f : domino) {
+                flujo.write(f.toString());
+                flujo.newLine();
+            }
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
 }

@@ -10,7 +10,7 @@ import java.util.List;
 
 @JsonPropertyOrder({
     "peso",
-    "listaElefantes"
+    "elefantes"
 })
 
 
@@ -23,7 +23,7 @@ public class CasoPrueba {
     
     @JsonProperty("peso")
     private int peso;
-    @JsonProperty("listaElefantes")
+    @JsonProperty("elefantes")
     private List<Elefante> listaElefantes;
 
     public CasoPrueba() {
@@ -33,7 +33,7 @@ public class CasoPrueba {
     /**
      * 
      * @param peso
-     * @param listaElefantes
+     * @param elefantes
      */
     public CasoPrueba(int peso, List<Elefante> listaElefantes) {
         this.peso = peso;
@@ -51,12 +51,12 @@ public class CasoPrueba {
         this.peso = peso;
     }
 
-    @JsonProperty("listaElefantes")
+    @JsonProperty("elefantes")
     public List<Elefante> getListaElefantes() {
         return listaElefantes;
     }
 
-    @JsonProperty("listaElefantes")
+    @JsonProperty("elefantes")
     public void setListaElefantes(List<Elefante> listaElefantes) {
         this.listaElefantes = listaElefantes;
     }

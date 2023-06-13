@@ -4,12 +4,16 @@
  */
 package ejrec2noelia;
 
+import java.util.HashSet;
+import java.util.Set;
+import java.util.TreeSet;
+
 /**
  *
  * @author noelia
  */
 public class FichaDomino {
-    
+
     private int ladoIzdo;
     private int ladoDer;
 
@@ -39,7 +43,7 @@ public class FichaDomino {
 
     @Override
     public String toString() {
-        return ladoIzdo + "-" + ladoDer;
+        return ladoIzdo + " - " + ladoDer;
     }
 
     @Override
@@ -50,19 +54,37 @@ public class FichaDomino {
         return hash;
     }
 
+     
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
         }
-        if (obj == null||getClass() != obj.getClass()) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
             return false;
         }
         final FichaDomino other = (FichaDomino) obj;
-        return (ladoIzdo == other.ladoIzdo && ladoDer == other.ladoDer)||
-                (ladoIzdo == other.ladoDer && ladoDer == other.ladoIzdo);
+        if ((ladoIzdo == other.ladoIzdo && ladoDer == other.ladoDer)
+                || (ladoIzdo == other.ladoDer && ladoDer == other.ladoIzdo)) {
+            return true;
+        } else {
+            return false;
+        }
     }
     
-    
-    
+    public static Set<FichaDomino> generarDominoCompleto(){
+        Set<FichaDomino> domino = new HashSet<>();
+        
+        for (int i = 0; i < 7; i++) {
+            for (int j = 0; j < 7; j++) {
+                domino.add(new FichaDomino(i, j));
+            }
+        }
+        
+        return domino;
+    }
+
 }

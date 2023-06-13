@@ -5,6 +5,9 @@
 
 package ej4recnoelia;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import java.io.File;
 import java.io.IOException;
 
 /**
@@ -15,9 +18,13 @@ public class Pruebas {
 
     public static void main(String[] args) throws IOException {
         
-        CasoPrueba caso = (CasoPrueba) ServiciosFicheros.leerJson("caso1.json", CasoPrueba.class);
+        ObjectMapper mapeador = new ObjectMapper();
+        mapeador.registerModule(new JavaTimeModule());
+
+        CasoPrueba casos = mapeador.readValue(new File("caso1.json"),
+                    mapeador.getTypeFactory().constructType(CasoPrueba.class));
         
-        caso.getListaElefantes().forEach(System.out::println);
+        
         
     }
 }
