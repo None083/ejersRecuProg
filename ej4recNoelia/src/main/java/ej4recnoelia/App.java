@@ -72,7 +72,7 @@ public class App {
         int sumaPeso = 0;
         
         if (caso.getPeso() + sumaPeso <= caso.getPeso()) {
-            lista.add(new Elefante(nombre, sumaPeso));
+            //lista.add(new Elefante(nombre, sumaPeso));
         }
         
         return lista;
