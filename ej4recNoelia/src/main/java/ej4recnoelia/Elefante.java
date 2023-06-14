@@ -39,7 +39,7 @@ public class Elefante {
 
     @Override
     public String toString() {
-        return "Elefante{" + "nombre=" + nombre + ", peso=" + peso + '}';
+        return nombre + ", Peso: " + peso;
     }
     
     
