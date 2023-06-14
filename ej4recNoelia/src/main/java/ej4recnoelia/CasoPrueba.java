@@ -38,7 +38,7 @@ public class CasoPrueba {
     public CasoPrueba(int peso, List<Elefante> listaElefantes) {
         this.peso = peso;
         this.listaElefantes = listaElefantes;
-    }
+    } 
     
     
     @JsonProperty("peso")

@@ -18,7 +18,7 @@ public class Elefante {
 
     public Elefante(String nombre, int peso) {
         this.nombre = nombre;
-        this.peso = peso;
+        this.peso = Math.abs(peso);
     }
 
     public String getNombre() {
@@ -34,7 +34,7 @@ public class Elefante {
     }
 
     public void setPeso(int peso) {
-        this.peso = peso;
+        this.peso = Math.abs(peso);
     }
 
     @Override
