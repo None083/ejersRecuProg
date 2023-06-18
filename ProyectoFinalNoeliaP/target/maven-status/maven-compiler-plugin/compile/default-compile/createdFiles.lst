@@ -1,0 +1,13 @@
+controladores\exceptions\IllegalOrphanException.class
+entidades\Usuario_.class
+entidades\Puntuacion_.class
+entidades\Obra_.class
+entidades\Puntuacion.class
+controladores\exceptions\PreexistingEntityException.class
+pruebas\Pruebas.class
+controladores\PuntuacionJpaController.class
+controladores\UsuarioJpaController.class
+controladores\ObraJpaController.class
+entidades\Obra.class
+controladores\exceptions\NonexistentEntityException.class
+entidades\Usuario.class
