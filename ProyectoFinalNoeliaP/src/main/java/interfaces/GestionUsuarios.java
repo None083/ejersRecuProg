@@ -168,7 +168,7 @@ public class GestionUsuarios extends javax.swing.JFrame {
         });
         panelFondo.add(atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 520, 100, 30));
 
-        imagenFondo.setIcon(new javax.swing.ImageIcon("C:\\Users\\FX506\\Documents\\NetBeansProjects\\ejersRecuProg\\ProyectoFinalNoeliaP\\src\\main\\resources\\fotos\\menu2.jpeg")); // NOI18N
+        imagenFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu2.jpeg"))); // NOI18N
         panelFondo.add(imagenFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 660));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

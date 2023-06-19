@@ -117,7 +117,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         getContentPane().add(exportar, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 490, 140, 35));
 
-        fondo.setIcon(new javax.swing.ImageIcon("C:\\Users\\FX506\\Documents\\NetBeansProjects\\ejersRecuProg\\ProyectoFinalNoeliaP\\src\\main\\resources\\fotos\\menu2.jpeg")); // NOI18N
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu2.jpeg"))); // NOI18N
         getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 660));
 
         pack();
