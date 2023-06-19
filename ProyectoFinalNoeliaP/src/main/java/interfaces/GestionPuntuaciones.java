@@ -5,9 +5,11 @@
 package interfaces;
 
 import controladores.ObraJpaController;
+import controladores.PuntuacionJpaController;
 import controladores.UsuarioJpaController;
 import controladores.exceptions.NonexistentEntityException;
 import entidades.Obra;
+import entidades.Puntuacion;
 import entidades.Usuario;
 import java.util.List;
 import java.util.logging.Level;
@@ -22,10 +24,12 @@ public class GestionPuntuaciones extends javax.swing.JFrame {
 
     private static UsuarioJpaController ujc;
     private static ObraJpaController ojc;
+    private static PuntuacionJpaController pjc;
 
     public GestionPuntuaciones() {
         ujc = new UsuarioJpaController(Persistence.createEntityManagerFactory("artebd"));
         ojc = new ObraJpaController(Persistence.createEntityManagerFactory("artebd"));
+        pjc = new PuntuacionJpaController(Persistence.createEntityManagerFactory("artebd"));
         initComponents();
         String listaToString = "Codigo\t Nombre \t Autor \t Descripcion \t Año \t Categoría \n";
         List<Obra> lista = ojc.findObraEntities();
@@ -58,7 +62,6 @@ public class GestionPuntuaciones extends javax.swing.JFrame {
         codObra = new javax.swing.JLabel();
         codObraInsert = new javax.swing.JTextField();
         insertar = new javax.swing.JButton();
-        consultar = new javax.swing.JButton();
         eliminar = new javax.swing.JButton();
         actualizar = new javax.swing.JButton();
         info = new javax.swing.JLabel();
@@ -67,110 +70,127 @@ public class GestionPuntuaciones extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        panelFondo.setBackground(new java.awt.Color(255, 255, 255));
         panelFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        titulo.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        titulo.setFont(new java.awt.Font("Segoe UI", 1, 60)); // NOI18N
+        titulo.setForeground(new java.awt.Color(165, 1, 17));
         titulo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         titulo.setText("Puntuación");
-        panelFondo.add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 200, 40));
+        panelFondo.add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 330, 70));
 
         tabla.setEditable(false);
         tabla.setColumns(20);
         tabla.setRows(5);
         jScrollPane1.setViewportView(tabla);
 
-        panelFondo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 800, 290));
+        panelFondo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 800, 290));
 
-        puntuacion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        puntuacion.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        puntuacion.setForeground(new java.awt.Color(230, 123, 133));
         puntuacion.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         puntuacion.setText("Puntuación");
-        panelFondo.add(puntuacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 470, 80, 30));
+        panelFondo.add(puntuacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 480, 130, 30));
 
         puntuacionInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 puntuacionInsertActionPerformed(evt);
             }
         });
-        panelFondo.add(puntuacionInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 470, 230, 30));
+        panelFondo.add(puntuacionInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 480, 280, 30));
 
-        comentario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        comentario.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        comentario.setForeground(new java.awt.Color(230, 123, 133));
         comentario.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         comentario.setText("Comentario");
-        panelFondo.add(comentario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 510, 90, 30));
+        panelFondo.add(comentario, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 520, 140, 30));
 
         comentarioInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comentarioInsertActionPerformed(evt);
             }
         });
-        panelFondo.add(comentarioInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 510, 230, 30));
+        panelFondo.add(comentarioInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 520, 280, 30));
 
-        codPuntuacion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        codPuntuacion.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        codPuntuacion.setForeground(new java.awt.Color(230, 123, 133));
         codPuntuacion.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         codPuntuacion.setText("Código puntuacion");
-        panelFondo.add(codPuntuacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 550, 130, 30));
+        panelFondo.add(codPuntuacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 560, 180, 30));
 
         codPuntuacionInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 codPuntuacionInsertActionPerformed(evt);
             }
         });
-        panelFondo.add(codPuntuacionInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 550, 60, 30));
+        panelFondo.add(codPuntuacionInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 560, 60, 30));
 
-        codObra.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        codObra.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        codObra.setForeground(new java.awt.Color(230, 123, 133));
         codObra.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         codObra.setText("Código obra");
-        panelFondo.add(codObra, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 590, 130, 30));
+        panelFondo.add(codObra, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 600, 180, 30));
 
         codObraInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 codObraInsertActionPerformed(evt);
             }
         });
-        panelFondo.add(codObraInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 590, 60, 30));
+        panelFondo.add(codObraInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 600, 60, 30));
 
+        insertar.setBackground(new java.awt.Color(217, 135, 143));
+        insertar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        insertar.setForeground(new java.awt.Color(255, 255, 255));
         insertar.setText("Insertar");
+        insertar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         insertar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 insertarActionPerformed(evt);
             }
         });
-        panelFondo.add(insertar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 510, 80, -1));
+        panelFondo.add(insertar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 480, 100, 30));
 
-        consultar.setText("Consultar");
-        consultar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                consultarActionPerformed(evt);
-            }
-        });
-        panelFondo.add(consultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 510, -1, -1));
-
+        eliminar.setBackground(new java.awt.Color(217, 135, 143));
+        eliminar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        eliminar.setForeground(new java.awt.Color(255, 255, 255));
         eliminar.setText("Eliminar");
+        eliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 eliminarActionPerformed(evt);
             }
         });
-        panelFondo.add(eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 550, 80, -1));
+        panelFondo.add(eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 520, 100, 30));
 
+        actualizar.setBackground(new java.awt.Color(217, 135, 143));
+        actualizar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        actualizar.setForeground(new java.awt.Color(255, 255, 255));
         actualizar.setText("Actualizar");
+        actualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         actualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 actualizarActionPerformed(evt);
             }
         });
-        panelFondo.add(actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 550, -1, -1));
-        panelFondo.add(info, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 490, 310, 30));
+        panelFondo.add(actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 480, 100, 30));
 
+        info.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        info.setForeground(new java.awt.Color(103, 181, 181));
+        panelFondo.add(info, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 600, 390, 30));
+
+        atras.setBackground(new java.awt.Color(217, 135, 143));
+        atras.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        atras.setForeground(new java.awt.Color(255, 255, 255));
         atras.setText("Atras");
+        atras.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         atras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 atrasActionPerformed(evt);
             }
         });
-        panelFondo.add(atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 550, -1, -1));
+        panelFondo.add(atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 520, 100, 30));
 
-        imagenFondo.setIcon(new javax.swing.ImageIcon("C:\\Users\\34616\\Desktop\\programacion\\ProyectoFinalNoeliaP\\src\\main\\resources\\fotos\\menu 2.jpeg")); // NOI18N
+        imagenFondo.setIcon(new javax.swing.ImageIcon("C:\\Users\\FX506\\Documents\\NetBeansProjects\\ejersRecuProg\\ProyectoFinalNoeliaP\\src\\main\\resources\\fotos\\menu2.jpeg")); // NOI18N
         imagenFondo.setText("jLabel1");
         panelFondo.add(imagenFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 660));
 
@@ -194,44 +214,33 @@ public class GestionPuntuaciones extends javax.swing.JFrame {
 
     private void insertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertarActionPerformed
 
-        ojc.create(new Obra(puntuacionInsert.getText(), descripInsert.getText(), comentarioInsert.getText(), new Usuario(Integer.valueOf(codPuntuacionInsert.getText()))));
-        descripInsert.setText("");
+        pjc.create(new Puntuacion(Integer.valueOf(puntuacionInsert.getText()), comentarioInsert.getText(), new Obra(Integer.valueOf(codObraInsert.getText()))));
         puntuacionInsert.setText("");
         comentarioInsert.setText("");
-        codPuntuacionInsert.setText("");
-        info.setText("Obra introducida correctamente");
-        String listaToString = "Codigo\t Nombre \t Autor \t Descripcion \t Año \t Categoría \n";
-        List<Obra> lista = ojc.findObraEntities();
-        for (Obra o : lista) {
-            listaToString += o.toString();
+        codObraInsert.setText("");
+        info.setText("Puntuación introducida correctamente");
+        String listaToString = "Codigo\t Obra \t Puntuacion \t Comentario \n";
+        List<Puntuacion> lista = pjc.findPuntuacionEntities();
+        for (Puntuacion p : lista) {
+            listaToString += p.toString();
         }
 
         tabla.setText(listaToString);
     }//GEN-LAST:event_insertarActionPerformed
 
-    private void consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarActionPerformed
-        String listaToString = "Codigo\t Nombre \t Autor \t Descripcion \t Año \t Categoría \n";
-        List<Obra> lista = ojc.findObraEntities();
-        for (Obra o : lista) {
-            listaToString += o.toString();
-        }
-
-        tabla.setText(listaToString);
-    }//GEN-LAST:event_consultarActionPerformed
-
     private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
 
         try {
-            ojc.destroy(Integer.valueOf(codObraInsert.getText()));
-            info.setText("Obra con codigo " + codObraInsert.getText() + " eliminada correctamente");
+            pjc.destroy(Integer.valueOf(codPuntuacionInsert.getText()));
+            info.setText("Puntuacion con codigo " + codPuntuacionInsert.getText() + " eliminado correctamente");
         } catch (NonexistentEntityException ex) {
             info.setText("Codigo erroneo, introduzca un codigo valido");
         }
-        codObraInsert.setText("");
-        String listaToString = "Codigo\t Nombre \t Autor \t Descripcion \t Año \t Categoría \n";
-        List<Obra> lista = ojc.findObraEntities();
-        for (Obra o : lista) {
-            listaToString += o.toString();
+        codPuntuacionInsert.setText("");
+        String listaToString = "Codigo\t Obra \t Puntuacion \t Comentario \n";
+        List<Puntuacion> lista = pjc.findPuntuacionEntities();
+        for (Puntuacion p : lista) {
+            listaToString += p.toString();
         }
 
         tabla.setText(listaToString);
@@ -239,16 +248,20 @@ public class GestionPuntuaciones extends javax.swing.JFrame {
 
     private void actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarActionPerformed
         try {
-            Obra o=ojc.findObra(Integer.valueOf(codObraInsert.getText()));
-            ojc.edit(new Obra(Integer.valueOf(codObraInsert.getText()),puntuacionInsert.getText(), descripInsert.getText(), o.getAñoPublicacion(), comentarioInsert.getText(), o.getAutorId(), o.getPuntuacion()));
+            Puntuacion p=pjc.findPuntuacion(Integer.valueOf(codPuntuacionInsert.getText()));
+            pjc.edit(new Puntuacion(p.getIdpuntu(), Integer.valueOf(puntuacionInsert.getText()), comentarioInsert.getText(), p.getObraId()));
             info.setText("Obra con codigo " + codObraInsert.getText() + " modificada correctamente");
         } catch (Exception ex) {
             info.setText("Codigo erroneo, introduzca un codigo valido");
         }
-        String listaToString = "Codigo\t Nombre \t Autor \t Descripcion \t Año \t Categoría \n";
-        List<Obra> lista = ojc.findObraEntities();
-        for (Obra o : lista) {
-            listaToString += o.toString();
+        codPuntuacionInsert.setText("");
+        puntuacionInsert.setText("");
+        comentarioInsert.setText("");
+        codObraInsert.setText("");
+        String listaToString = "Codigo\t Obra \t Puntuacion \t Comentario \n";
+        List<Puntuacion> lista = pjc.findPuntuacionEntities();
+        for (Puntuacion p : lista) {
+            listaToString += p.toString();
         }
 
         tabla.setText(listaToString);
@@ -324,7 +337,6 @@ public class GestionPuntuaciones extends javax.swing.JFrame {
     private javax.swing.JTextField codPuntuacionInsert;
     private javax.swing.JLabel comentario;
     private javax.swing.JTextField comentarioInsert;
-    private javax.swing.JButton consultar;
     private javax.swing.JButton eliminar;
     private javax.swing.JLabel imagenFondo;
     private javax.swing.JLabel info;

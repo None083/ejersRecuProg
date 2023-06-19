@@ -4,6 +4,25 @@
  */
 package interfaces;
 
+import controladores.ObraJpaController;
+import controladores.PuntuacionJpaController;
+import controladores.UsuarioJpaController;
+import entidades.Obra;
+import entidades.Puntuacion;
+import entidades.Usuario;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.AccessDeniedException;
+import java.nio.file.FileAlreadyExistsException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+import javax.persistence.Persistence;
+
 /**
  *
  * @author 34616
@@ -26,51 +45,79 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel2 = new javax.swing.JLabel();
         verUsuarios = new javax.swing.JButton();
         verObras = new javax.swing.JButton();
         verPuntuaciones = new javax.swing.JButton();
+        exportar = new javax.swing.JButton();
+        fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 130)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(165, 1, 17));
+        jLabel2.setText("ArteBD");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 550, 210));
+
+        verUsuarios.setBackground(new java.awt.Color(217, 135, 143));
+        verUsuarios.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        verUsuarios.setForeground(new java.awt.Color(255, 255, 255));
         verUsuarios.setText("Usuarios");
+        verUsuarios.setBorder(null);
+        verUsuarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         verUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 verUsuariosActionPerformed(evt);
             }
         });
+        getContentPane().add(verUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 490, 140, 35));
 
+        verObras.setBackground(new java.awt.Color(217, 135, 143));
+        verObras.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        verObras.setForeground(new java.awt.Color(255, 255, 255));
         verObras.setText("Obras");
+        verObras.setBorder(null);
+        verObras.setBorderPainted(false);
+        verObras.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         verObras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 verObrasActionPerformed(evt);
             }
         });
+        getContentPane().add(verObras, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 490, 140, 35));
 
-        verPuntuaciones.setText("Puntuacion");
+        verPuntuaciones.setBackground(new java.awt.Color(217, 135, 143));
+        verPuntuaciones.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        verPuntuaciones.setForeground(new java.awt.Color(255, 255, 255));
+        verPuntuaciones.setText("Puntuación");
+        verPuntuaciones.setBorder(null);
+        verPuntuaciones.setBorderPainted(false);
+        verPuntuaciones.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        verPuntuaciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verPuntuacionesActionPerformed(evt);
+            }
+        });
+        getContentPane().add(verPuntuaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 490, 140, 35));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(105, 105, 105)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(verPuntuaciones, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
-                    .addComponent(verObras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(verUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(174, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(96, 96, 96)
-                .addComponent(verUsuarios)
-                .addGap(18, 18, 18)
-                .addComponent(verObras)
-                .addGap(18, 18, 18)
-                .addComponent(verPuntuaciones)
-                .addContainerGap(99, Short.MAX_VALUE))
-        );
+        exportar.setBackground(new java.awt.Color(217, 135, 143));
+        exportar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        exportar.setForeground(new java.awt.Color(255, 255, 255));
+        exportar.setText("Exportar");
+        exportar.setBorder(null);
+        exportar.setBorderPainted(false);
+        exportar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        exportar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exportarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(exportar, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 490, 140, 35));
+
+        fondo.setIcon(new javax.swing.ImageIcon("C:\\Users\\FX506\\Documents\\NetBeansProjects\\ejersRecuProg\\ProyectoFinalNoeliaP\\src\\main\\resources\\fotos\\menu2.jpeg")); // NOI18N
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 660));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -82,9 +129,95 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_verUsuariosActionPerformed
 
     private void verObrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verObrasActionPerformed
-        // TODO add your handling code here:
+        GestionObras g=new GestionObras();
+        g.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_verObrasActionPerformed
 
+    private void verPuntuacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verPuntuacionesActionPerformed
+        GestionPuntuaciones g=new GestionPuntuaciones();
+        g.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_verPuntuacionesActionPerformed
+
+    private void exportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportarActionPerformed
+        
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH-mm-ss");
+        String rutaPrincipal = "./copias/" + LocalDateTime.now().format(formatter);
+        crearDirectorio(rutaPrincipal);
+        escribirUsuario(rutaPrincipal + "/usuario.csv");
+        escribirObra(rutaPrincipal + "/obra.csv");
+        escribirPuntuacion(rutaPrincipal + "/puntuacion.csv");
+        
+    }//GEN-LAST:event_exportarActionPerformed
+
+    private static void escribirUsuario(String ruta){
+        UsuarioJpaController ujc;
+        ujc = new UsuarioJpaController(Persistence.createEntityManagerFactory("artebd"));
+        
+        
+        try (BufferedWriter flujo = new BufferedWriter(new FileWriter(ruta))) {
+            List<Usuario> listaUsu = ujc.findUsuarioEntities();
+            for (Usuario u : listaUsu) {
+                flujo.write(u.toString());
+            }
+            flujo.flush();
+            System.out.println("Fichero " + ruta + " creado correctamente.");
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    private static void escribirObra(String ruta){
+        ObraJpaController ojc;
+        ojc = new ObraJpaController(Persistence.createEntityManagerFactory("artebd"));
+        
+        
+        try (BufferedWriter flujo = new BufferedWriter(new FileWriter(ruta))) {
+            List<Obra> listaObras = ojc.findObraEntities();
+            for (Obra o : listaObras) {
+                flujo.write(o.toString());
+            }
+            flujo.flush();
+            System.out.println("Fichero " + ruta + " creado correctamente.");
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    private static void escribirPuntuacion(String ruta){
+        PuntuacionJpaController pjc;
+        pjc = new PuntuacionJpaController(Persistence.createEntityManagerFactory("artebd"));
+        
+        
+        try (BufferedWriter flujo = new BufferedWriter(new FileWriter(ruta))) {
+            List<Puntuacion> listaPuntu = pjc.findPuntuacionEntities();
+            for (Puntuacion p : listaPuntu) {
+                flujo.write(p.toString());
+            }
+            flujo.flush();
+            System.out.println("Fichero " + ruta + " creado correctamente.");
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public static void crearDirectorio(String ruta) {
+
+        Path directory = Paths.get(ruta);
+        try {
+            Files.createDirectory(directory);
+        } catch (FileAlreadyExistsException faee) {
+            System.out.println("No se puede crear " + ruta + " porque ya existe");
+        } catch (AccessDeniedException ade) {
+            System.out.println("No tiene permisos para crear " + ruta);
+        } catch (IOException e) {
+            System.out.println("Problema creando el directorio " + ruta);
+            System.out.println("Seguramente la ruta está mal escrita o no existe");
+        }
+
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -121,6 +254,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton exportar;
+    private javax.swing.JLabel fondo;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JButton verObras;
     private javax.swing.JButton verPuntuaciones;
     private javax.swing.JButton verUsuarios;

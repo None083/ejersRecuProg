@@ -53,7 +53,6 @@ public class GestionUsuarios extends javax.swing.JFrame {
         codigo = new javax.swing.JLabel();
         emailInsert = new javax.swing.JTextField();
         insertar = new javax.swing.JButton();
-        consultar = new javax.swing.JButton();
         eliminar = new javax.swing.JButton();
         actualizar = new javax.swing.JButton();
         info = new javax.swing.JLabel();
@@ -62,110 +61,125 @@ public class GestionUsuarios extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        panelFondo.setBackground(new java.awt.Color(255, 255, 255));
         panelFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        titulo.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        titulo.setFont(new java.awt.Font("Segoe UI", 1, 60)); // NOI18N
+        titulo.setForeground(new java.awt.Color(165, 1, 17));
         titulo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         titulo.setText("Usuario");
-        panelFondo.add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 140, 40));
+        panelFondo.add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 230, 60));
 
         codigoInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 codigoInsertActionPerformed(evt);
             }
         });
-        panelFondo.add(codigoInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 490, 60, 30));
+        panelFondo.add(codigoInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 560, 60, 30));
 
         tabla.setEditable(false);
         tabla.setColumns(20);
         tabla.setRows(5);
         jScrollPane1.setViewportView(tabla);
 
-        panelFondo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 630, 290));
+        panelFondo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 800, 290));
 
-        nombre.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        nombre.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        nombre.setForeground(new java.awt.Color(230, 123, 133));
         nombre.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         nombre.setText("Nombre");
-        panelFondo.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 410, 80, 30));
+        panelFondo.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 480, 80, 30));
 
         nombreInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nombreInsertActionPerformed(evt);
             }
         });
-        panelFondo.add(nombreInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 412, 230, 30));
+        panelFondo.add(nombreInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 480, 280, 30));
 
-        email.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        email.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        email.setForeground(new java.awt.Color(230, 123, 133));
         email.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         email.setText("Email");
-        panelFondo.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 450, 80, 30));
+        panelFondo.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 520, 80, 30));
 
-        codigo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        codigo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        codigo.setForeground(new java.awt.Color(230, 123, 133));
         codigo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         codigo.setText("Código");
-        panelFondo.add(codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 490, 80, 30));
+        panelFondo.add(codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 560, 80, 30));
 
         emailInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 emailInsertActionPerformed(evt);
             }
         });
-        panelFondo.add(emailInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 450, 230, 30));
+        panelFondo.add(emailInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 520, 280, 30));
 
+        insertar.setBackground(new java.awt.Color(217, 135, 143));
+        insertar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        insertar.setForeground(new java.awt.Color(255, 255, 255));
         insertar.setText("Insertar");
         insertar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 insertarActionPerformed(evt);
             }
         });
-        panelFondo.add(insertar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 410, 80, -1));
+        panelFondo.add(insertar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 480, 100, 30));
 
-        consultar.setText("Consultar");
-        consultar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                consultarActionPerformed(evt);
-            }
-        });
-        panelFondo.add(consultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 410, -1, -1));
-
+        eliminar.setBackground(new java.awt.Color(217, 135, 143));
+        eliminar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        eliminar.setForeground(new java.awt.Color(255, 255, 255));
         eliminar.setText("Eliminar");
         eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 eliminarActionPerformed(evt);
             }
         });
-        panelFondo.add(eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 450, 80, -1));
+        panelFondo.add(eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 520, 100, 30));
 
+        actualizar.setBackground(new java.awt.Color(217, 135, 143));
+        actualizar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        actualizar.setForeground(new java.awt.Color(255, 255, 255));
         actualizar.setText("Actualizar");
         actualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 actualizarActionPerformed(evt);
             }
         });
-        panelFondo.add(actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 450, -1, -1));
-        panelFondo.add(info, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 490, 310, 30));
+        panelFondo.add(actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 480, 100, 30));
 
+        info.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        info.setForeground(new java.awt.Color(103, 181, 181));
+        panelFondo.add(info, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 600, 390, 30));
+
+        atras.setBackground(new java.awt.Color(217, 135, 143));
+        atras.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        atras.setForeground(new java.awt.Color(255, 255, 255));
         atras.setText("Atras");
         atras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 atrasActionPerformed(evt);
             }
         });
-        panelFondo.add(atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 510, -1, -1));
+        panelFondo.add(atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 520, 100, 30));
 
-        imagenFondo.setIcon(new javax.swing.ImageIcon("C:\\Users\\34616\\Desktop\\programacion\\ProyectoFinalNoeliaP\\src\\main\\resources\\fotos\\menu (Personalizado).jpeg")); // NOI18N
-        imagenFondo.setText("jLabel1");
-        panelFondo.add(imagenFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, -1));
+        imagenFondo.setIcon(new javax.swing.ImageIcon("C:\\Users\\FX506\\Documents\\NetBeansProjects\\ejersRecuProg\\ProyectoFinalNoeliaP\\src\\main\\resources\\fotos\\menu2.jpeg")); // NOI18N
+        panelFondo.add(imagenFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 660));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(panelFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 960, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(panelFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -193,16 +207,6 @@ public class GestionUsuarios extends javax.swing.JFrame {
         tabla.setText(listaToString);
     }//GEN-LAST:event_insertarActionPerformed
 
-    private void consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarActionPerformed
-        String listaToString = "Codigo\t Nombre \t Email \t Fecha Registro \n";
-        List<Usuario> lista = ujc.findUsuarioEntities();
-        for (Usuario usuario : lista) {
-            listaToString += usuario.toString();
-        }
-
-        tabla.setText(listaToString);
-    }//GEN-LAST:event_consultarActionPerformed
-
     private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
 
         try {
@@ -211,6 +215,7 @@ public class GestionUsuarios extends javax.swing.JFrame {
         } catch (NonexistentEntityException ex) {
             info.setText("Codigo erroneo, introduzca un codigo valido");
         }
+        codigoInsert.setText("");
         String listaToString = "Codigo\t Nombre \t Email \t Fecha Registro \n";
         List<Usuario> lista = ujc.findUsuarioEntities();
         for (Usuario usuario : lista) {
@@ -219,23 +224,6 @@ public class GestionUsuarios extends javax.swing.JFrame {
 
         tabla.setText(listaToString);
     }//GEN-LAST:event_eliminarActionPerformed
-
-    private void actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarActionPerformed
-        try {
-            Usuario u=ujc.findUsuario(Integer.valueOf(codigoInsert.getText()));
-            ujc.edit(new Usuario(Integer.valueOf(codigoInsert.getText()),nombreInsert.getText(), emailInsert.getText(),u.getFechaRegistro(), u.getObraList()));
-            info.setText("Usuario con codigo " + codigoInsert.getText() + " modificado correctamente");
-        } catch (Exception ex) {
-            info.setText("Codigo erroneo, introduzca un codigo valido");
-        }
-        String listaToString = "Codigo\t Nombre \t Email \t Fecha Registro \n";
-        List<Usuario> lista = ujc.findUsuarioEntities();
-        for (Usuario usuario : lista) {
-            listaToString += usuario.toString();
-        }
-
-        tabla.setText(listaToString);
-    }//GEN-LAST:event_actualizarActionPerformed
 
     private void codigoInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codigoInsertActionPerformed
         // TODO add your handling code here:
@@ -246,6 +234,26 @@ public class GestionUsuarios extends javax.swing.JFrame {
         v.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_atrasActionPerformed
+
+    private void actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarActionPerformed
+        try {
+            Usuario u=ujc.findUsuario(Integer.valueOf(codigoInsert.getText()));
+            ujc.edit(new Usuario(Integer.valueOf(codigoInsert.getText()),nombreInsert.getText(), emailInsert.getText(),u.getFechaRegistro(), u.getObraList()));
+            info.setText("Usuario con codigo " + codigoInsert.getText() + " modificado correctamente");
+        } catch (Exception ex) {
+            info.setText("Codigo erroneo, introduzca un codigo valido");
+        }
+        codigoInsert.setText("");
+        emailInsert.setText("");
+        nombreInsert.setText("");
+        String listaToString = "Codigo\t Nombre \t Email \t Fecha Registro \n";
+        List<Usuario> lista = ujc.findUsuarioEntities();
+        for (Usuario usuario : lista) {
+            listaToString += usuario.toString();
+        }
+
+        tabla.setText(listaToString);
+    }//GEN-LAST:event_actualizarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -289,7 +297,6 @@ public class GestionUsuarios extends javax.swing.JFrame {
     private javax.swing.JButton atras;
     private javax.swing.JLabel codigo;
     private javax.swing.JTextField codigoInsert;
-    private javax.swing.JButton consultar;
     private javax.swing.JButton eliminar;
     private javax.swing.JLabel email;
     private javax.swing.JTextField emailInsert;

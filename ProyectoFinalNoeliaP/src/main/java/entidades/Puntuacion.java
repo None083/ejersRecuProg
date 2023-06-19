@@ -57,8 +57,12 @@ public class Puntuacion implements Serializable {
         this.comentario = comentario;
         this.obraId = obraId;
     }
-    
-    
+
+    public Puntuacion(Integer puntuacion, String comentario, Obra obraId) {
+        this.puntuacion = puntuacion;
+        this.comentario = comentario;
+        this.obraId = obraId;
+    }
 
     public Integer getIdpuntu() {
         return idpuntu;
@@ -114,7 +118,7 @@ public class Puntuacion implements Serializable {
 
     @Override
     public String toString() {
-        return idpuntu + "\t" + puntuacion + "\t" + comentario + "\t" + obraId + "\n";
+        return idpuntu + "\t" + obraId.getIdobra() + "\t" + puntuacion + "\t" + comentario + "\n";
     }
 
     

@@ -60,7 +60,6 @@ public class GestionObras extends javax.swing.JFrame {
         codObra = new javax.swing.JLabel();
         codObraInsert = new javax.swing.JTextField();
         insertar = new javax.swing.JButton();
-        consultar = new javax.swing.JButton();
         eliminar = new javax.swing.JButton();
         actualizar = new javax.swing.JButton();
         info = new javax.swing.JLabel();
@@ -69,122 +68,141 @@ public class GestionObras extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        panelFondo.setBackground(new java.awt.Color(255, 255, 255));
         panelFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        titulo.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        titulo.setBackground(new java.awt.Color(255, 255, 255));
+        titulo.setFont(new java.awt.Font("Segoe UI", 1, 60)); // NOI18N
+        titulo.setForeground(new java.awt.Color(165, 1, 17));
         titulo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         titulo.setText("Obra");
-        panelFondo.add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 140, 40));
+        panelFondo.add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 160, 60));
 
         tabla.setEditable(false);
         tabla.setColumns(20);
         tabla.setRows(5);
         jScrollPane1.setViewportView(tabla);
 
-        panelFondo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 800, 290));
+        panelFondo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 800, 290));
 
-        nombreObra.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        nombreObra.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        nombreObra.setForeground(new java.awt.Color(230, 123, 133));
         nombreObra.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        nombreObra.setText("Titulo");
-        panelFondo.add(nombreObra, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 460, 80, 30));
+        nombreObra.setText("Título");
+        panelFondo.add(nombreObra, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 480, 120, 30));
 
         nombreInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nombreInsertActionPerformed(evt);
             }
         });
-        panelFondo.add(nombreInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 460, 230, 30));
+        panelFondo.add(nombreInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 480, 280, 30));
 
-        descrip.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        descrip.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        descrip.setForeground(new java.awt.Color(230, 123, 133));
         descrip.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         descrip.setText("Categoría");
-        panelFondo.add(descrip, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 540, 80, 30));
+        panelFondo.add(descrip, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 560, 120, 30));
 
         categoriaInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 categoriaInsertActionPerformed(evt);
             }
         });
-        panelFondo.add(categoriaInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 540, 230, 30));
+        panelFondo.add(categoriaInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 560, 280, 30));
 
-        categoria.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        categoria.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        categoria.setForeground(new java.awt.Color(230, 123, 133));
         categoria.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         categoria.setText("Descripcion");
-        panelFondo.add(categoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 500, 80, 30));
+        panelFondo.add(categoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 520, 120, 30));
 
         descripcionInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 descripcionInsertActionPerformed(evt);
             }
         });
-        panelFondo.add(descripcionInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 500, 230, 30));
+        panelFondo.add(descripcionInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 520, 280, 30));
 
-        codAutor.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        codAutor.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        codAutor.setForeground(new java.awt.Color(230, 123, 133));
         codAutor.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         codAutor.setText("Código obra");
-        panelFondo.add(codAutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 620, 130, 30));
+        panelFondo.add(codAutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 600, 170, 30));
 
         codAutorInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 codAutorInsertActionPerformed(evt);
             }
         });
-        panelFondo.add(codAutorInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 580, 60, 30));
+        panelFondo.add(codAutorInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 600, 60, 30));
 
-        codObra.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        codObra.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        codObra.setForeground(new java.awt.Color(230, 123, 133));
         codObra.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         codObra.setText("Código autor");
-        panelFondo.add(codObra, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 580, 130, 30));
+        panelFondo.add(codObra, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 600, 170, 30));
 
         codObraInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 codObraInsertActionPerformed(evt);
             }
         });
-        panelFondo.add(codObraInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 620, 60, 30));
+        panelFondo.add(codObraInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 600, 60, 30));
 
+        insertar.setBackground(new java.awt.Color(217, 135, 143));
+        insertar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        insertar.setForeground(new java.awt.Color(255, 255, 255));
         insertar.setText("Insertar");
         insertar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 insertarActionPerformed(evt);
             }
         });
-        panelFondo.add(insertar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 510, 80, -1));
+        panelFondo.add(insertar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 480, 100, 30));
 
-        consultar.setText("Consultar");
-        consultar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                consultarActionPerformed(evt);
-            }
-        });
-        panelFondo.add(consultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 510, -1, -1));
-
+        eliminar.setBackground(new java.awt.Color(217, 135, 143));
+        eliminar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        eliminar.setForeground(new java.awt.Color(255, 255, 255));
         eliminar.setText("Eliminar");
         eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 eliminarActionPerformed(evt);
             }
         });
-        panelFondo.add(eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 550, 80, -1));
+        panelFondo.add(eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 520, 100, 30));
 
+        actualizar.setBackground(new java.awt.Color(217, 135, 143));
+        actualizar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        actualizar.setForeground(new java.awt.Color(255, 255, 255));
         actualizar.setText("Actualizar");
         actualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 actualizarActionPerformed(evt);
             }
         });
-        panelFondo.add(actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 550, -1, -1));
-        panelFondo.add(info, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 490, 310, 30));
+        panelFondo.add(actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 480, 100, 30));
 
+        info.setBackground(new java.awt.Color(255, 255, 255));
+        info.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        info.setForeground(new java.awt.Color(103, 181, 181));
+        panelFondo.add(info, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 600, 390, 30));
+
+        atras.setBackground(new java.awt.Color(217, 135, 143));
+        atras.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        atras.setForeground(new java.awt.Color(255, 255, 255));
         atras.setText("Atras");
+        atras.setMaximumSize(new java.awt.Dimension(83, 23));
+        atras.setMinimumSize(new java.awt.Dimension(83, 23));
+        atras.setPreferredSize(new java.awt.Dimension(83, 23));
         atras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 atrasActionPerformed(evt);
             }
         });
-        panelFondo.add(atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 550, -1, -1));
+        panelFondo.add(atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 520, 100, 30));
 
-        imagenFondo.setIcon(new javax.swing.ImageIcon("C:\\Users\\34616\\Desktop\\programacion\\ProyectoFinalNoeliaP\\src\\main\\resources\\fotos\\menu 2.jpeg")); // NOI18N
+        imagenFondo.setIcon(new javax.swing.ImageIcon("C:\\Users\\FX506\\Documents\\NetBeansProjects\\ejersRecuProg\\ProyectoFinalNoeliaP\\src\\main\\resources\\fotos\\menu2.jpeg")); // NOI18N
         imagenFondo.setText("jLabel1");
         panelFondo.add(imagenFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 660));
 
@@ -227,16 +245,6 @@ public class GestionObras extends javax.swing.JFrame {
         tabla.setText(listaToString);
     }//GEN-LAST:event_insertarActionPerformed
 
-    private void consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarActionPerformed
-        String listaToString = "Codigo\t Nombre \t Autor \t Descripcion \t Año \t Categoría \n";
-        List<Obra> lista = ojc.findObraEntities();
-        for (Obra o : lista) {
-            listaToString += o.toString();
-        }
-
-        tabla.setText(listaToString);
-    }//GEN-LAST:event_consultarActionPerformed
-
     private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
 
         try {
@@ -263,6 +271,10 @@ public class GestionObras extends javax.swing.JFrame {
         } catch (Exception ex) {
             info.setText("Codigo erroneo, introduzca un codigo valido");
         }
+        categoriaInsert.setText("");
+        nombreInsert.setText("");
+        descripcionInsert.setText("");
+        codAutorInsert.setText("");
         String listaToString = "Codigo\t Nombre \t Autor \t Descripcion \t Año \t Categoría \n";
         List<Obra> lista = ojc.findObraEntities();
         for (Obra o : lista) {
@@ -338,7 +350,6 @@ public class GestionObras extends javax.swing.JFrame {
     private javax.swing.JTextField codAutorInsert;
     private javax.swing.JLabel codObra;
     private javax.swing.JTextField codObraInsert;
-    private javax.swing.JButton consultar;
     private javax.swing.JLabel descrip;
     private javax.swing.JTextField descripcionInsert;
     private javax.swing.JButton eliminar;
