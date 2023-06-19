@@ -27,6 +27,7 @@ public class GestionObras extends javax.swing.JFrame {
         ujc = new UsuarioJpaController(Persistence.createEntityManagerFactory("artebd"));
         ojc = new ObraJpaController(Persistence.createEntityManagerFactory("artebd"));
         initComponents();
+        this.setLocationRelativeTo(null);
         String listaToString = "Codigo\t Nombre \t Autor \t Descripcion \t Año \t Categoría \n";
         List<Obra> lista = ojc.findObraEntities();
         for (Obra o : lista) {
@@ -80,6 +81,7 @@ public class GestionObras extends javax.swing.JFrame {
 
         tabla.setEditable(false);
         tabla.setColumns(20);
+        tabla.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         tabla.setRows(5);
         jScrollPane1.setViewportView(tabla);
 
@@ -91,6 +93,7 @@ public class GestionObras extends javax.swing.JFrame {
         nombreObra.setText("Título");
         panelFondo.add(nombreObra, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 480, 120, 30));
 
+        nombreInsert.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         nombreInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nombreInsertActionPerformed(evt);
@@ -104,6 +107,7 @@ public class GestionObras extends javax.swing.JFrame {
         descrip.setText("Categoría");
         panelFondo.add(descrip, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 560, 120, 30));
 
+        categoriaInsert.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         categoriaInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 categoriaInsertActionPerformed(evt);
@@ -117,6 +121,7 @@ public class GestionObras extends javax.swing.JFrame {
         categoria.setText("Descripcion");
         panelFondo.add(categoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 520, 120, 30));
 
+        descripcionInsert.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         descripcionInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 descripcionInsertActionPerformed(evt);
@@ -130,6 +135,7 @@ public class GestionObras extends javax.swing.JFrame {
         codAutor.setText("Código obra");
         panelFondo.add(codAutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 600, 170, 30));
 
+        codAutorInsert.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         codAutorInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 codAutorInsertActionPerformed(evt);
@@ -143,6 +149,7 @@ public class GestionObras extends javax.swing.JFrame {
         codObra.setText("Código autor");
         panelFondo.add(codObra, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 600, 170, 30));
 
+        codObraInsert.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         codObraInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 codObraInsertActionPerformed(evt);

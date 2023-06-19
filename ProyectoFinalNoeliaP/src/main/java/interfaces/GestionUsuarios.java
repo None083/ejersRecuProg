@@ -24,6 +24,7 @@ public class GestionUsuarios extends javax.swing.JFrame {
     public GestionUsuarios() {
         ujc = new UsuarioJpaController(Persistence.createEntityManagerFactory("artebd"));
         initComponents();
+        this.setLocationRelativeTo(null);
         String listaToString = "Codigo\t Nombre \t Email \t Fecha Registro \n";
         List<Usuario> lista = ujc.findUsuarioEntities();
         for (Usuario usuario : lista) {
@@ -70,6 +71,7 @@ public class GestionUsuarios extends javax.swing.JFrame {
         titulo.setText("Usuario");
         panelFondo.add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 230, 60));
 
+        codigoInsert.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         codigoInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 codigoInsertActionPerformed(evt);
@@ -77,8 +79,8 @@ public class GestionUsuarios extends javax.swing.JFrame {
         });
         panelFondo.add(codigoInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 560, 60, 30));
 
-        tabla.setEditable(false);
         tabla.setColumns(20);
+        tabla.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         tabla.setRows(5);
         jScrollPane1.setViewportView(tabla);
 
@@ -90,6 +92,7 @@ public class GestionUsuarios extends javax.swing.JFrame {
         nombre.setText("Nombre");
         panelFondo.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 480, 80, 30));
 
+        nombreInsert.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         nombreInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nombreInsertActionPerformed(evt);
@@ -106,9 +109,10 @@ public class GestionUsuarios extends javax.swing.JFrame {
         codigo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         codigo.setForeground(new java.awt.Color(230, 123, 133));
         codigo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        codigo.setText("Código");
-        panelFondo.add(codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 560, 80, 30));
+        codigo.setText("Código usuario");
+        panelFondo.add(codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 560, 140, 30));
 
+        emailInsert.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         emailInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 emailInsertActionPerformed(evt);

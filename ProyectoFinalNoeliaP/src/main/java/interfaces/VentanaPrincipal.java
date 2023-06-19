@@ -34,6 +34,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
      */
     public VentanaPrincipal() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -64,7 +65,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         verUsuarios.setBackground(new java.awt.Color(217, 135, 143));
         verUsuarios.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         verUsuarios.setForeground(new java.awt.Color(255, 255, 255));
-        verUsuarios.setText("Usuarios");
+        verUsuarios.setText("Usuario");
         verUsuarios.setBorder(null);
         verUsuarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         verUsuarios.addActionListener(new java.awt.event.ActionListener() {
@@ -77,7 +78,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         verObras.setBackground(new java.awt.Color(217, 135, 143));
         verObras.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         verObras.setForeground(new java.awt.Color(255, 255, 255));
-        verObras.setText("Obras");
+        verObras.setText("Obra");
         verObras.setBorder(null);
         verObras.setBorderPainted(false);
         verObras.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -86,7 +87,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 verObrasActionPerformed(evt);
             }
         });
-        getContentPane().add(verObras, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 490, 140, 35));
+        getContentPane().add(verObras, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 490, 140, 35));
 
         verPuntuaciones.setBackground(new java.awt.Color(217, 135, 143));
         verPuntuaciones.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -100,7 +101,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 verPuntuacionesActionPerformed(evt);
             }
         });
-        getContentPane().add(verPuntuaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 490, 140, 35));
+        getContentPane().add(verPuntuaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 490, 140, 35));
 
         exportar.setBackground(new java.awt.Color(217, 135, 143));
         exportar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N

@@ -31,6 +31,7 @@ public class GestionPuntuaciones extends javax.swing.JFrame {
         ojc = new ObraJpaController(Persistence.createEntityManagerFactory("artebd"));
         pjc = new PuntuacionJpaController(Persistence.createEntityManagerFactory("artebd"));
         initComponents();
+        this.setLocationRelativeTo(null);
         String listaToString = "Codigo\t Nombre \t Autor \t Descripcion \t Año \t Categoría \n";
         List<Obra> lista = ojc.findObraEntities();
         for (Obra o : lista) {
@@ -81,6 +82,7 @@ public class GestionPuntuaciones extends javax.swing.JFrame {
 
         tabla.setEditable(false);
         tabla.setColumns(20);
+        tabla.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         tabla.setRows(5);
         jScrollPane1.setViewportView(tabla);
 
@@ -92,6 +94,7 @@ public class GestionPuntuaciones extends javax.swing.JFrame {
         puntuacion.setText("Puntuación");
         panelFondo.add(puntuacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 480, 130, 30));
 
+        puntuacionInsert.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         puntuacionInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 puntuacionInsertActionPerformed(evt);
@@ -105,6 +108,7 @@ public class GestionPuntuaciones extends javax.swing.JFrame {
         comentario.setText("Comentario");
         panelFondo.add(comentario, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 520, 140, 30));
 
+        comentarioInsert.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         comentarioInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comentarioInsertActionPerformed(evt);
@@ -118,6 +122,7 @@ public class GestionPuntuaciones extends javax.swing.JFrame {
         codPuntuacion.setText("Código puntuacion");
         panelFondo.add(codPuntuacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 560, 180, 30));
 
+        codPuntuacionInsert.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         codPuntuacionInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 codPuntuacionInsertActionPerformed(evt);
@@ -131,6 +136,7 @@ public class GestionPuntuaciones extends javax.swing.JFrame {
         codObra.setText("Código obra");
         panelFondo.add(codObra, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 600, 180, 30));
 
+        codObraInsert.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         codObraInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 codObraInsertActionPerformed(evt);
